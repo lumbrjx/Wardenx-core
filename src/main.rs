@@ -1,3 +1,6 @@
+use wardenx_core::warden_db;
+
 fn main() {
-    println!("Hello, world!");
+    let _ = warden_db::connect_to_db();
+    println!("done");
 }
