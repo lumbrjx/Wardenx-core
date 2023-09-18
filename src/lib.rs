@@ -10,9 +10,14 @@ pub mod password {
     pub(crate) mod generator;
     pub(crate) mod manager;
 }
+pub use password::generator::*;
+pub use password::manager::*;
 pub use password::*;
+pub use profile::history::*;
+pub use profile::user::*;
 pub use profile::*;
 pub mod sayhi {
+
     pub use super::*;
     pub fn hi() {
         println!("hey");
