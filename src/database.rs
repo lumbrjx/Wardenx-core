@@ -4,28 +4,23 @@ pub use rusqlite::{Connection, Result};
 pub mod warden_db {
 
     use super::*;
+    pub fn db_connect() -> Result<Connection> {
+        let path = "./dev44.db3";
 
-    #[derive(Debug)]
-    pub struct Profile {
-        id: i32,
-        username: String,
-        master_password: String,
+        let conn = Connection::open(path)?;
+        Ok(conn)
     }
-
     // Create a local database if it doesn't exist *path modified later*
     // Create profile, passwords, history tables
-    pub fn connect_to_db() -> Result<()> {
-        let path = "./dev1b.db3";
-        let conn = Connection::open(path)?;
+    pub fn create_db_tables() -> Result<Connection> {
+        let conn = db_connect()?;
 
         // Profile table
         conn.execute(
             "CREATE TABLE IF NOT EXISTS profile (
-                id INTEGER PRIMARY KEY,
+                id TEXT PRIMARY KEY,
                 username TEXT NOT NULL,
-                master_password TEXT NOT NULL,
-                reset_question1 TEXT NOT NULL,
-                reset_question2 TEXT NOT NULL
+                master_password TEXT NOT NULL
             )",
             [],
         )?;
@@ -33,7 +28,7 @@ pub mod warden_db {
         // Passwords table
         conn.execute(
             "CREATE TABLE IF NOT EXISTS passwords (
-                id INTEGER PRIMARY KEY,
+                id TEXT PRIMARY KEY,
                 label TEXT NOT NULL,
                 password TEXT NOT NULL
             )",
@@ -43,13 +38,12 @@ pub mod warden_db {
         // History table
         conn.execute(
             "CREATE TABLE IF NOT EXISTS history (
-                id INTEGER PRIMARY KEY,
+                id TEXT PRIMARY KEY,
                 operation TEXT NOT NULL,
                 date_time TEXT NOT NULL
             )",
             [],
         )?;
-
-        Ok(())
+        Ok(conn)
     }
 }
