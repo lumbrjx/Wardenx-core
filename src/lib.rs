@@ -3,12 +3,12 @@ pub use database::*;
 pub mod encrypt;
 pub use encrypt::*;
 pub mod profile {
-    pub(crate) mod history;
-    pub(crate) mod user;
+    pub mod history;
+    pub mod user;
 }
 pub mod password {
-    pub(crate) mod generator;
-    pub(crate) mod manager;
+    pub mod generator;
+    pub mod manager;
 }
 pub use password::generator::*;
 pub use password::manager::*;
