@@ -20,7 +20,8 @@ pub mod warden_db {
             "CREATE TABLE IF NOT EXISTS profile (
                 id TEXT PRIMARY KEY,
                 username TEXT NOT NULL,
-                master_password TEXT NOT NULL
+                master_password TEXT NOT NULL,
+                recovery_key TEXT NOT NULL
             )",
             [],
         )?;

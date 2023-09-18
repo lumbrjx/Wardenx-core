@@ -10,7 +10,7 @@ pub mod history {
     // create new history record
     pub fn add_record(record: String) -> Result<()> {
         let current_datetime = Local::now();
-        let formatted_datetime = current_datetime.format("%d/%m/%y/%H/%M").to_string();
+        let formatted_datetime = current_datetime.format("%d/%m/%y/%H:%M").to_string();
         let conn = db_connect()?;
         conn.execute(
             "INSERT INTO history (id, operation, date_time) VALUES (?, ?, ?)",

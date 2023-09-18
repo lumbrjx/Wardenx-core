@@ -2,6 +2,8 @@
 name = "wardenx-core"
 version = "0.1.0"
 edition = "2021"
+description = "wardenx-core core system and functionalities"
+license = "MIT OR Apache-2.0"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
@@ -11,3 +13,7 @@ cuid2 = "0.1.2"
 rusqlite = { version = "0.29.0", features = ["bundled"] } 
 magic-crypt = "3.1.9"
 chrono = "0.4.31"
+rand = "0.8"
+crypto-hash = "0.3.4"
+digest = "0.9"
+sha2 = "0.9"
