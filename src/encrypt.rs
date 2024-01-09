@@ -28,7 +28,7 @@ pub fn encrypt_pass(pass: String, enc_t: EncType) -> Result<Vec<u8>, aes_gcm::Er
 }
 
 pub fn hash_string(input: &str) -> String {
-    // Create a new SHA-256 hasher
+    // Create new SHA-256 hasher
     let mut hasher = Sha256::new();
 
     // Update the hasher with the input string bytes
