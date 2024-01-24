@@ -1,6 +1,6 @@
 [package]
 name = "wardenx-core"
-version = "0.1.5"
+version = "0.1.6"
 edition = "2021"
 description = "wardenx-core core system and functionalities"
 license = "MIT OR Apache-2.0"
@@ -17,6 +17,5 @@ rand = "0.8"
 
 digest = "0.9"
 sha2 = "0.9"
+df1t-cyph = "0.2.1"
 
-
-aes-gcm = "0.10.3"
